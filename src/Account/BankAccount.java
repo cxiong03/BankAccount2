@@ -1,9 +1,9 @@
-package com.codewithchang;
+package Account;
 
 public class BankAccount {
     private String owner;
     private String acctNum;
-    private int balance;
+    protected int balance;
     private String type;
 
     public BankAccount(String owner, String acctNum, int balance, String type) {
@@ -28,6 +28,9 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return "Type: " + type + " " + "\tOwner: " + owner + "\tAccount Number: " + acctNum + "\tBalance: " + balance;
+        int dollar = balance / 100;
+        int cents = balance % 100;
+        String balanceF = "$"+dollar + "." + cents;
+        return "Type: " + type + " " + "\tOwner: " + owner + "\tAccount Number: " + acctNum + "\tBalance: " + balanceF;
         }
     }

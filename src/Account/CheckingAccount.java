@@ -1,6 +1,6 @@
-package com.codewithchang;
+package Account;
 
-public class CheckingAccount extends BankAccount{
+public class CheckingAccount extends BankAccount {
     private  int dailyLimit;
     private int dailyWithdrawn = 0;
 
@@ -20,6 +20,5 @@ public class CheckingAccount extends BankAccount{
             return;
         }
         super.withdraw(amt);
-        dailyWithdrawn += amt;
     }
 }
