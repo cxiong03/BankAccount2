@@ -33,4 +33,6 @@ public class BankAccount {
         String balanceF = "$"+dollar + "." + cents;
         return "Type: " + type + " " + "\tOwner: " + owner + "\tAccount Number: " + acctNum + "\tBalance: " + balanceF;
         }
+
+        public int getBalance() { return balance; }
     }
