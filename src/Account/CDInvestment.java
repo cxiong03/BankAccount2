@@ -1,6 +1,6 @@
 package Account;
 
-public class CDInvestment extends InvestmentAccount{
+public class CDInvestment extends InvestmentAccount implements Account {
     private int timeFrame;
 
     public CDInvestment(String owner, String acctNum, int balance, int timeFrame) {

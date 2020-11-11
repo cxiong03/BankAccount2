@@ -1,6 +1,6 @@
 package Account;
 
-public class CheckingAccount extends BankAccount {
+public class CheckingAccount extends BankAccount implements Account {
     private  int dailyLimit;
     private int dailyWithdrawn = 0;
 

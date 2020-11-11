@@ -1,6 +1,6 @@
 package Account;
 
-public class BankAccount {
+public class BankAccount implements Account {
     private String owner;
     private String acctNum;
     protected int balance;
