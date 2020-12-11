@@ -33,7 +33,7 @@ public class Client {
         // pull the account from the list
         // find the account save it in an Account variable
         //display the account details to the console.
-        
+        AccountNum.contains();
     }
 
     public String displayAccounts() {
