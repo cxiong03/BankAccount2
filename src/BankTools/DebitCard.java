@@ -52,7 +52,7 @@ public class DebitCard {
     }
 
     public void displayAccounts() {
-        for (Account account : atmAccounts) {
+        for (var account : atmAccounts) {
             System.out.println(account.toString());
         }
     }
