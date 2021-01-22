@@ -48,7 +48,7 @@ public class Bank {
         switch (accountType) {
             case "checking":
                 return new CheckingAccount(balance, owner, Integer.toString(accounts.size() + 1),
-                        ui.getNumber("What is this clients"));
+                        ui.getNumber("What is this clients Daily limit?"));
             default:
                 System.out.println("ERROR: Invalid Account Type");
                 return null;

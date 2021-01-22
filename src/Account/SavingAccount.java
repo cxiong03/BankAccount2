@@ -3,8 +3,8 @@ package Account;
 public class SavingAccount extends BankAccount implements Account {
     private int interest;
 
-    public SavingAccount(String owner, String acctNum, int balance, int interest) {
-        super(owner, acctNum, balance, "Savings");
+    public SavingAccount(String owner, String accountNum, int balance, int interest) {
+        super(owner, accountNum, balance, "Savings");
         this.interest = interest;
     }
 

@@ -2,13 +2,13 @@ package Account;
 
 public class BankAccount implements Account {
     private String owner;
-    private String acctNum;
+    private String accountNum;
     protected int balance;
     private String type;
 
-    public BankAccount(String owner, String acctNum, int balance, String type) {
+    public BankAccount(String owner, String accountNum, int balance, String type) {
         this.owner = owner;
-        this.acctNum = acctNum;
+        this.accountNum = accountNum;
         this.balance = balance;
         this.type = type;
     }
@@ -28,7 +28,7 @@ public class BankAccount implements Account {
     }
 
     @Override
-    public String getAcctNum() {
+    public String getAccountNum() {
         return accountNum;
     }
 
@@ -37,7 +37,7 @@ public class BankAccount implements Account {
         int dollar = balance / 100;
         int cents = balance % 100;
         String balanceF = "$"+dollar + "." + cents;
-        return "Type: " + type + " " + "\tOwner: " + owner + "\tAccount Number: " + acctNum + "\tBalance: " + balanceF;
+        return "Type: " + type + " " + "\tOwner: " + owner + "\tAccount Number: " + accountNum + "\tBalance: " + balanceF;
         }
 
         public int getBalance() { return balance; }

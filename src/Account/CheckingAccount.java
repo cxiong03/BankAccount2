@@ -4,8 +4,8 @@ public class CheckingAccount extends BankAccount implements Account {
     private  int dailyLimit;
     private int dailyWithdrawn = 0;
 
-    public CheckingAccount(String owner, String acctNum, int balance, int dailyLimit) {
-        super(owner, acctNum, balance, "Checking");
+    public CheckingAccount(String owner, String accountNum, int balance, int dailyLimit) {
+        super(owner, accountNum, balance, "Checking");
         this.dailyLimit = dailyLimit;
     }
 
