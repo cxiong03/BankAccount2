@@ -1,6 +1,8 @@
 package Bank;
 
 import Account.Account;
+import Account.CheckingAccount;
+import BankTools.Ui;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,7 @@ public class Bank {
     public void addClient(String firstName, String lastName, String ssn, String address) {
         clients.add(createClient(firstName, lastName, ssn, address));
     }
-
+    // Overload method
     public void addClient(String firstname, String lastName, String ssn) {
         clients.add(createClient(firstname, lastName, ssn, this.city));
     }
@@ -42,17 +44,19 @@ public class Bank {
         return output;
     }
     // Create Account
-    private Account createAccount(int balance, String owner, String accountType) {
+    private Account createAccount(int balance, String owner, String accountType, Ui ui) {
         switch (accountType) {
             case "checking":
-                return new CheckingAccount(balance, owner, accounts.size() + 1);
-                return null;
+                return new CheckingAccount(balance, owner, Integer.toString(accounts.size() + 1),
+                        ui.getNumber("What is this clients"));
             default:
                 System.out.println("ERROR: Invalid Account Type");
                 return null;
         }
     }
     // Add account to client
-
+    public void addAccount(int balance, String owner, String accountType, Ui ui) {
+        accounts.add(createAccount(balance, owner, accountType, ui));
+    }
     // Close Account
 }

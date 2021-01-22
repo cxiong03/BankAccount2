@@ -60,8 +60,8 @@ public class Client {
     public String displayAccount(String accountNum) {
         return accounts.get(accountNum).toString();
     }
-
+    // getter used in Bank class
     public String getName() {
-
+        return name;
     }
 }
