@@ -17,13 +17,8 @@ public class DebitCard {
     // private Calendar expDate;
     private String cardOwner;
     private List<Account> atmAccounts = new ArrayList<>();
-//    private List<CheckingAccount> atmCheckingAccounts = new ArrayList<>(); // 1. WE CAN DO IT THIS WAY
-//    private List<SavingAccount> atmSavingAccounts;
-//    private List<InvestmentAccount> atmInvestmentAccounts = new ArrayList<>();
 
     public DebitCard(String cardNum, String pin, String securityCode, String cardOwner, CheckingAccount primary) {
-        //list: atmCheckingAccount.get(3);
-        //list: atmCheckingAccount.add();
         this.cardNum = cardNum;
         this.pin = pin;
         this.securityCode = securityCode;
@@ -34,14 +29,6 @@ public class DebitCard {
     public void addAccount(Account account) {
         atmAccounts.add(account);
     }
-
-//    public void addCheckingAccount(CheckingAccount account) {
-//        atmCheckingAccounts.add(account);
-//    }
-//
-//    public void addSavingsAccount(SavingAccount account) {
-//        atmSavingAccounts.add(account);
-//    }
 
     public boolean charge(int amt, String pin) {
         if(this.pin.equals(pin) && primary.getBalance() >= amt) {
@@ -57,7 +44,7 @@ public class DebitCard {
         }
     }
 
-    public void details() {
-        System.out.println("Owner: " + cardOwner + "\tAccount Balance: " + primary.getBalance());
+    public String details() {
+        return "Owner: " + cardOwner + "\tAccount Balance: " + primary.getBalance();
     }
 }

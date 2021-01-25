@@ -14,7 +14,6 @@ public class Client {
     private String address;
     private String firstName;
     private String lastName;
-//    private List<Account> accounts = new ArrayList<>();
     private HashMap<String, Account> accounts = new HashMap<>();
     private List<DebitCard> debitCards = new ArrayList<>();
 
@@ -37,7 +36,7 @@ public class Client {
         return;
     }
 
-    public void addDebitCard(String AccountNum) {
+    public void addDebitCard(String accountNum) {
         // accountNum list of accounts find the account.
         // find the account save it in an Account variable
         Account primaryAccount = accounts.get(accountNum);
