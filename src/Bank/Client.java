@@ -16,13 +16,19 @@ public class Client {
     private String lastName;
     private HashMap<String, Account> accounts = new HashMap<>();
     private List<DebitCard> debitCards = new ArrayList<>();
+    private int clientID;
 
-    public Client(String firstName, String lastName, String ssn, String address) {
+    public int getClientID() {
+        return clientID;
+    }
+
+    public Client(String firstName, String lastName, String ssn, String address, int id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.name = firstName + " " + lastName;
         this.ssn = ssn;
         this.address = address;
+        clientID = id;
     }
 
     public void addAccount (Account account) {

@@ -3,17 +3,21 @@ package com.codewithchang;
 import Account.*;
 import Bank.Bank;
 import Bank.Client;
+import BankTools.Console;
 import BankTools.DebitCard;
+import BankTools.Ui;
+
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
+        Ui console = new Console();
+        Bank ourBank = new Bank("Cliff Trust", "GoodTown");
+        ourBank.addClient("Chang", "Xiong", "3333");
 
-        Client chang = new Client("Chang", "Xiong", "333", "1 Providence");
+        ourBank.addAccount(10000, 1, "checking", console);
 
-        Bank ourBank = new Bank("Bit Credit Union", "Circuit Island");
-
-        ourBank.addClient("Chang", "Xiong", "333", "1 Providence");
-        ourBank.addClient("Jim", "Brown", "1445");
+        System.out.println(ourBank.displayClients());
     }
 }

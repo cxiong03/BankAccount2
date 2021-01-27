@@ -5,14 +5,16 @@ import Account.CheckingAccount;
 import BankTools.Ui;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Bank {
     private String name;
     private int onHandCash;
     private String city;
-    private List<Client> clients;
+    private HashMap<Integer, Client> clients = new HashMap<Integer, Client>();
     private List<Account> accounts = new ArrayList<Account>();
+    private int clientCount = 0;
 //    list of accounts?
 
     // create the bank.
@@ -20,43 +22,55 @@ public class Bank {
         this.name = name;
         this.city = city;
         this.onHandCash = 100000000;
-        this.clients = new ArrayList<>();
     }
     // add client
     public void addClient(String firstName, String lastName, String ssn, String address) {
-        clients.add(createClient(firstName, lastName, ssn, address));
+        Client newClient = createClient(firstName, lastName, ssn, address);
+        clients.put(newClient.getClientID(), newClient);
     }
     // Overload method
-    public void addClient(String firstname, String lastName, String ssn) {
-        clients.add(createClient(firstname, lastName, ssn, this.city));
+    public void addClient(String firstName, String lastName, String ssn) {
+        Client newClient = createClient(firstName, lastName, ssn, this.city);
+        clients.put(newClient.getClientID(), newClient);
     }
 
     private Client createClient(String firstName, String lastName, String ssn, String address) {
-        return new Client(firstName, lastName, ssn, address);
+        return new Client(firstName, lastName, ssn, address, ++clientCount);
     }
     // display clients
     public String displayClients() {
-        String output = "";
+        String output = name + "clients:";
         //logic
-        for (var client : clients) {
+        for (var client : clients.values()) {
             output += client.getName() + "\n" + client.displayAccounts() + "\n";
         }
         return output;
     }
+
+    // Add account to client
+    public void addAccount(int balance, int ownerId, String accountType, Ui ui) {
+        Client client = clients.get(ownerId);
+        Account newAccount = createAccount(balance, client.getName(), accountType, ui);
+        accounts.add(newAccount);
+        client.addAccount(newAccount);
+    }
+
     // Create Account
     private Account createAccount(int balance, String owner, String accountType, Ui ui) {
         switch (accountType) {
             case "checking":
-                return new CheckingAccount(owner, Integer.toString(accounts.size() + 1), balance,
-                        ui.getNumber("What is this clients Daily limit?"));
+                return new CheckingAccount(
+                        owner,
+                        Integer.toString(accounts.size() + 1),
+                        balance,
+                        ui.getNumber("What is this clients Daily limit? " + 20 + " - " + balance,
+                                20, balance)
+                );
             default:
                 System.out.println("ERROR: Invalid Account Type");
                 return null;
         }
     }
-    // Add account to client
-    public void addAccount(int balance, String owner, String accountType, Ui ui) {
-        accounts.add(createAccount(balance, owner, accountType, ui));
-    }
+
     // Close Account
 }
