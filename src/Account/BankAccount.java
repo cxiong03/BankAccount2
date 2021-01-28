@@ -37,7 +37,7 @@ public class BankAccount implements Account {
         int dollar = balance / 100;
         int cents = balance % 100;
         String balanceF = "$"+dollar + "." + cents;
-        return "Type: " + type + " " + "\tOwner: " + owner + "\tAccount Number: " + accountNum + "\tBalance: " + balanceF;
+        return "Type: " + type + " " + "\tOwner: " + owner + "\tAccount Number: " + accountNum + "\tBalance: " + balance;
         }
 
         public int getBalance() { return balance; }

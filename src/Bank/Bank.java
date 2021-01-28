@@ -2,6 +2,7 @@ package Bank;
 
 import Account.Account;
 import Account.CheckingAccount;
+import Account.SavingAccount;
 import BankTools.Ui;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class Bank {
     }
     // display clients
     public String displayClients() {
-        String output = name + "clients:";
+        String output = name + "clients:\n";
         //logic
         for (var client : clients.values()) {
             output += client.getName() + "\n" + client.displayAccounts() + "\n";
@@ -66,10 +67,25 @@ public class Bank {
                         ui.getNumber("What is this clients Daily limit? " + 20 + " - " + balance,
                                 20, balance)
                 );
+            case "savings":
+                return new SavingAccount(
+                        owner,
+                        Integer.toString(accounts.size() + 1),
+                        balance,
+                        ui.getNumber("Savings Interest rate 3% to 10%? ", 3, 10)
+                );
             default:
                 System.out.println("ERROR: Invalid Account Type");
                 return null;
         }
+    }
+
+    public void addDebitCard() {
+        return;
+    }
+
+    public void createDebitCard() {
+        return;
     }
 
     // Close Account

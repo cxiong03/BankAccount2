@@ -21,4 +21,11 @@ public class CheckingAccount extends BankAccount implements Account {
         }
         super.withdraw(amt);
     }
+
+    @Override
+    public String toString() {
+        String outPut = super.toString();
+        outPut += "\tDailyLimit: " + dailyLimit;
+        return outPut;
+    }
 }

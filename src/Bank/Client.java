@@ -52,6 +52,10 @@ public class Client {
         debitCards.add(card);
     }
 
+    public void addDebitCard(DebitCard newCard) {
+        debitCards.add(newCard);
+    }
+
     public String displayAccounts() {
         String output = "Accounts:\n";
         for (var account : accounts.values()) {
