@@ -45,6 +45,7 @@ public class DebitCard {
     }
 
     public String details() {
-        return "Owner: " + cardOwner + "\tAccount Balance: " + primary.getBalance();
+        return "Owner: " + cardOwner + "\tAccount Balance: " + primary.getBalance() +
+                "\tNumber: " + cardNum + "\tcvv: " + securityCode;
     }
 }
