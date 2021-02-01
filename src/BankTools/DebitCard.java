@@ -1,9 +1,8 @@
 package BankTools;
 
 import Account.Account;
+import Account.BankAccount;
 import Account.CheckingAccount;
-import Account.InvestmentAccount;
-import Account.SavingAccount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ public class DebitCard {
     private String pin;
     // private Calendar expDate;
     private String cardOwner;
-    private List<Account> atmAccounts = new ArrayList<>();
+    private List<BankAccount> atmAccounts = new ArrayList<>();
 
     public DebitCard(String cardNum, String pin, String securityCode, String cardOwner, CheckingAccount primary) {
         this.cardNum = cardNum;
@@ -26,7 +25,7 @@ public class DebitCard {
         this.primary = primary;
     }
 
-    public void addAccount(Account account) {
+    public void addAccount(BankAccount account) {
         atmAccounts.add(account);
     }
 

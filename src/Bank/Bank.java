@@ -1,6 +1,6 @@
 package Bank;
 
-import Account.Account;
+import Account.BankAccount;
 import Account.CheckingAccount;
 import Account.SavingAccount;
 import BankTools.DebitCard;
@@ -16,7 +16,7 @@ public class Bank {
     private int onHandCash;
     private String city;
     private HashMap<Integer, Client> clients = new HashMap<Integer, Client>();
-    private HashMap<String, Account> accounts = new HashMap<String, Account>();
+    private HashMap<String, BankAccount> accounts = new HashMap<>();
 //    private List<Account> accounts = new ArrayList<Account>();
     private int accountCount = 0;
     private int clientCount = 0;
@@ -56,13 +56,13 @@ public class Bank {
     // Add account to client
     public void addAccount(int balance, int ownerId, String accountType, Ui ui) {
         Client client = clients.get(ownerId);
-        Account newAccount = createAccount(balance, client.getName(), accountType, ui);
+        BankAccount newAccount = createAccount(balance, client.getName(), accountType, ui);
         accounts.put(newAccount.getAccountNum(), newAccount);
         client.addAccount(newAccount);
     }
 
     // Create Account
-    private Account createAccount(int balance, String owner, String accountType, Ui ui) {
+    private BankAccount createAccount(int balance, String owner, String accountType, Ui ui) {
         switch (accountType) {
             case "checking":
                 return new CheckingAccount(
@@ -87,7 +87,7 @@ public class Bank {
 
     public void addDebitCard(int ownerId, String accountId) {
         Client client = clients.get(ownerId);
-        Account account = accounts.get(accountId);
+        BankAccount account = accounts.get(accountId);
         if (!(account instanceof CheckingAccount)) {
             System.out.println("Error: Primary account must be a checking account.");
             return;

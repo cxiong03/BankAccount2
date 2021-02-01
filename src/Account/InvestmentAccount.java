@@ -1,6 +1,6 @@
 package Account;
 
-public class InvestmentAccount extends BankAccount implements Account {
+public class InvestmentAccount extends BankAccount {
     private int investment;
     private int period = 3;
 

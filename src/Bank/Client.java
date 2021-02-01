@@ -1,6 +1,7 @@
 package Bank;
 
 import Account.Account;
+import Account.BankAccount;
 import Account.CheckingAccount;
 import BankTools.DebitCard;
 
@@ -14,7 +15,7 @@ public class Client {
     private String address;
     private String firstName;
     private String lastName;
-    private HashMap<String, Account> accounts = new HashMap<>();
+    private HashMap<String, BankAccount> accounts = new HashMap<>();
     private List<DebitCard> debitCards = new ArrayList<>();
     private int clientID;
 
@@ -31,13 +32,13 @@ public class Client {
         clientID = id;
     }
 
-    public void addAccount (Account account) {
+    public void addAccount (BankAccount account) {
         accounts.put(account.getAccountNum(), account);
     }
 
     public void withdrawAccount(String accountNum, int amount) {
         // find the account
-        Account account = accounts.get(accountNum);
+        BankAccount account = accounts.get(accountNum);
         account.withdraw(amount);
         return;
     }
@@ -45,7 +46,7 @@ public class Client {
     public void addDebitCard(String accountNum) {
         // accountNum list of accounts find the account.
         // find the account save it in an Account variable
-        Account primaryAccount = accounts.get(accountNum);
+        BankAccount primaryAccount = accounts.get(accountNum);
         // TODO: verify the account is a checking account.
         // using instanceOf
         DebitCard card = new DebitCard("1337", "5555", "032", name, (CheckingAccount) primaryAccount);

@@ -1,6 +1,6 @@
 package Account;
 
-public class BankAccount implements Account {
+public abstract class BankAccount {
     private String owner;
     private String accountNum;
     protected int balance;
@@ -27,7 +27,6 @@ public class BankAccount implements Account {
         }
     }
 
-    @Override
     public String getAccountNum() {
         return accountNum;
     }
